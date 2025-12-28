@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Footprint Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PapaParse for CSV -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body  class="page-load">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h2>💧 WaterFootprint</h2>
+
+        <div class="role-toggle">
+            <button onclick="selectRole('user')">User</button>
+            <button onclick="selectRole('farmer')">Farmer</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero reveal">
+        <h1>Know the Water Behind Your Food</h1>
+        <p>
+            Make informed, sustainable choices for people and farmers.
+        </p>
+    </section>
+
+    <!-- MAIN CARD -->
+    <section class="search-section">
+        <div class="card reveal">
+
+            <h3>Check Water Footprint</h3>
+
+            <!-- FARMER INPUTS -->
+            <div id="farmerInputs" class="hidden">
+
+                <select id="soilInput">
+                    <option value="">Select Soil Type</option>
+                    <option>Clay</option>
+                    <option>Loamy</option>
+                    <option>Sandy</option>
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Alluvial</option>
+                </select>
+
+                <select id="climateInput">
+                    <option value="">Select Climate</option>
+                    <option>Tropical</option>
+                    <option>Temperate</option>
+                    <option>Arid</option>
+                    <option>Semi-Arid</option>
+                </select>
+
+            </div>
+
+            <!-- CROP INPUT -->
+            <input
+                type="text"
+                id="productInput"
+                placeholder="Enter crop name (e.g., Rice, Wheat, Potato)"
+            >
+
+            <button onclick="searchProduct()">Check</button>
+
+            <!-- RESULT -->
+            <div id="result" class="result hidden">
+                <h4 id="productName"></h4>
+                <p id="waterValue"></p>
+                <span id="category" class="badge"></span>
+                <p id="message" class="note"></p>
+            </div>
+
+            <!-- COMPARISON -->
+            <div id="compareSection" class="hidden">
+
+                <h4>Compare with another crop</h4>
+
+                <input
+                    type="text"
+                    id="compareInput"
+                    placeholder="Enter alternative crop"
+                >
+
+                <button onclick="compareProduct()">Compare</button>
+
+                <p id="compareResult"></p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="info-section reveal">
+
+        <h2>About This Website</h2>
+
+<div class="card-grid">
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">What is this?</div>
+      <div class="flip-back">
+        A tool to show water used in food production
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Why needed?</div>
+      <div class="flip-back">
+        To reduce hidden agricultural water usage
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Main focus</div>
+      <div class="flip-back">
+        Crop-wise water footprint awareness
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Core goal</div>
+      <div class="flip-back">
+        Promote sustainable food & farming choices
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Impact</div>
+      <div class="flip-back">
+        Lower water stress and better crop planning
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+        <h2>How to Use This Website</h2>
+
+<div class="card-grid">
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Step 1</div>
+      <div class="flip-back">
+        Select User or Farmer mode from the header
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Step 2</div>
+      <div class="flip-back">
+        Enter the crop or food item you want to check
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Step 3</div>
+      <div class="flip-back">
+        (Farmer mode) Select suitable soil and climate
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Step 4</div>
+      <div class="flip-back">
+        System matches data from the dataset and shows water footprint
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card reveal">
+    <div class="flip-inner">
+      <div class="flip-front">Step 5</div>
+      <div class="flip-back">
+        Compare alternatives to choose crops with lower water usage
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Water Footprint Calculator | Clean & Green Technology</p>
+    </footer>
+
+    <!-- MAIN SCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

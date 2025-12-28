@@ -1,0 +1,264 @@
+/* ---------------- GLOBAL ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #eef7f6, #f9fbfb);
+    color: #333;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    background: #006d77;
+    color: white;
+    padding: 22px 40px;              /* ⬅️ Increased height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo text */
+.navbar h2 {
+    font-size: 26px;                 /* ⬅️ Bigger logo */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ---------- ROLE TOGGLE (FIX) ---------- */
+.role-toggle {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.role-toggle button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #83c5be;
+    color: #003b44;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.role-toggle button:hover {
+    background: #94d2bd;
+    transform: translateY(-1px);
+}
+
+/* Optional active highlight */
+.role-toggle button.active {
+    background: #ffffff;
+    color: #006d77;
+}
+
+
+/* ---------------- HERO ---------------- */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(to right, #83c5be, #edf6f9);
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 17px;
+    max-width: 650px;
+    margin: auto;
+}
+
+
+
+
+
+/* ---------------- SEARCH CARD ---------------- */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: -40px 20px 60px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 460px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    border-radius: 10px;
+    border: 1px solid #cbdede;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(to right, #006d77, #0a9396);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---------------- RESULT ---------------- */
+.result {
+    margin-top: 30px;
+}
+
+.badge {
+    display: inline-block;
+    margin: 12px 0;
+    padding: 8px 22px;
+    border-radius: 999px;
+    color: white;
+    font-weight: 600;
+}
+
+.low { background: #2a9d8f; }
+.medium { background: #f4a261; }
+.high { background: #e63946; }
+
+.hidden {
+    display: none;
+}
+
+/* ---------------- INFO SECTION ---------------- */
+.info-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #f5fbfb, #eef7f7);
+}
+
+.info-section h2 {
+    text-align: center;
+    color: #006d77;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* ---------------- GRID ---------------- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* FORCE 5 IN ONE LINE */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 70px;
+}
+
+
+/* ---------------- FLIP CARDS ---------------- */
+.flip-card {
+    perspective: 1200px;
+}
+
+.flip-inner {
+    position: relative;
+    height: 160px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg) translateY(-6px);
+}
+
+/* Card Faces */
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    text-align: center;
+    font-size: 15px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.flip-front {
+    background: #8ecfc6;
+    color: #003b44;
+    font-weight: 600;
+}
+
+.flip-back {
+    background: #006d77;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #e9ecef;
+    font-size: 14px;
+}
+
+
+/* ---------------- PAGE LOAD ANIMATION ---------------- */
+
+/* Initial hidden state */
+.page-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageFadeIn 0.9s ease forwards;
+}
+
+/* Animation keyframes */
+@keyframes pageFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+/* ---------- CARD APPEAR ANIMATION ---------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: all 0.8s ease;
+}
+
+/* When revealed */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger effect (auto delay per card) */
+.card-grid .reveal:nth-child(1) { transition-delay: 0.05s; }
+.card-grid .reveal:nth-child(2) { transition-delay: 0.15s; }
+.card-grid .reveal:nth-child(3) { transition-delay: 0.25s; }
+.card-grid .reveal:nth-child(4) { transition-delay: 0.35s; }
+.card-grid .reveal:nth-child(5) { transition-delay: 0.45s; }

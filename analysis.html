@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Footprint Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="analysis.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<nav class="navbar">
+    <h2>📊 Water Footprint Analysis</h2>
+    <button class="back-btn" onclick="goBack()">← Back</button>
+</nav>
+
+<!-- TITLE -->
+<h2 class="analysis-title">Comparative Analysis of Selected Crops</h2>
+
+<!-- CHART GRID -->
+<div class="chart-grid">
+
+    <div class="chart-box">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="histChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="boxChart"></canvas>
+    </div>
+
+</div>
+
+<script src="analysis.js"></script>
+</body>
+</html>
