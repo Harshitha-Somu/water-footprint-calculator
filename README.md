@@ -39,7 +39,7 @@ Source: Kaggle
 
 The dataset contains crop-wise water consumption values and is directly used in the frontend without any backend processing.
 
----
+
 
 Folder Structure
 
@@ -59,7 +59,7 @@ water-footprint-project
 └── README.md
 
 
----
+
 
 How It Works
 
