@@ -88,6 +88,7 @@ The dataset contains crop-wise water consumption values and is directly used in 
 
 Folder Structure
 
+```
 water-footprint-project
 │
 ├── index.html
@@ -101,6 +102,7 @@ water-footprint-project
 ├── agricultural_water_footprint.csv
 │
 └── README.md
+```
 
 ---
 
